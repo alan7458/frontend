@@ -1128,8 +1128,8 @@ input[type="range"]:hover {
 #chat li .reply {
     margin-right: 4px;
     padding-inline: 5px;
-    background-color: #111;
-    border: 1px solid #444;
+    background: rgba(170, 187, 170, 0.35);
+    border: 1px solid #898;
     text-shadow: none;
     border-radius: 2px;
     -webkit-border-radius: 2px;
