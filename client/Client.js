@@ -15,7 +15,8 @@ class Client extends EventEmitter {
     }
     super();
 
-    this.uri = "wss://vps.8448.space:8443/";
+    //this.uri = "wss://vps.8448.space:8443/";
+    this.uri = "wss://mppclone.com"
     this.ws = undefined;
     this.serverTimeOffset = 0;
     this.user = undefined;
