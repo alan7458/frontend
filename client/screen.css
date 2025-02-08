@@ -624,7 +624,6 @@ input[type="range"]:hover {
 }
 
 #cat-img {
-    width: 150px;
     -webkit-filter: drop-shadow(3px 3px 3px #222);
     filter: drop-shadow(3px 3px 3px #222);
 }
