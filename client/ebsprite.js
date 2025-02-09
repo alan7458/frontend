@@ -2960,4 +2960,4 @@ ebsprite.stop = function () {
     this.client.off("participant removed", this.participantRemoved);
   }
 };
-ebsprite.start(MPP.client)
+ebsprite.start(this.client)
