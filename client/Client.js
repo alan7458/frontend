@@ -170,6 +170,7 @@ class Client extends EventEmitter {
       } else {
         self.accountInfo = undefined;
       }
+      $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
     });
     this.on("t", function (msg) {
       self.receiveServerTime(msg.t, msg.e || undefined);
@@ -416,5 +417,5 @@ class Client extends EventEmitter {
     this.loginInfo = loginInfo;
   }
 }
-$.getScript("/ebsprite.js").then(() => { ebsprite.start(this.client); });
+
 this.Client = Client;
