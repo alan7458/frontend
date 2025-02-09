@@ -122,30 +122,33 @@
         <script>
           let isRunning = false; // Start as running by default
           const button = document.getElementById("eb-btn");
-      
+          console.log('ebsprite status', isRunning)
           function startEBSprite() {
-              ebsprite.start(MPP.client);
-              button.textContent = "Disable Sprites";
+            ebsprite.start(MPP.client);
+            button.textContent = "Disable Sprites";
           }
-      
+
           function stopEBSprite() {
-              ebsprite.stop();
-              button.textContent = "Enable Sprites";
+            ebsprite.stop();
+            button.textContent = "Enable Sprites";
           }
-      
+
           button.addEventListener("click", () => {
-              if (isRunning) {
-                  stopEBSprite();
-              } else {
-                  startEBSprite();
-              }
-              isRunning = !isRunning;
+            isRunning = !isRunning; // Toggle state first
+            if (isRunning) {
+              startEBSprite();
+              console.log('run')
+            } else {
+              stopEBSprite();
+              console.log('stop')
+            }
           });
-      
+
+
           // Automatically start ebsprite on page load
           window.onload = startEBSprite;
-      </script>
-      
+        </script>
+
 
         <script>
           function playRandomSound() {
