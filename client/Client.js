@@ -15,8 +15,7 @@ class Client extends EventEmitter {
     }
     super();
 
-    //this.uri = "wss://vps.8448.space:8443/";
-    this.uri = "wss://mppclone.com"
+    this.uri = "wss://mppclone.com";
     this.ws = undefined;
     this.serverTimeOffset = 0;
     this.user = undefined;
@@ -170,7 +169,6 @@ class Client extends EventEmitter {
       } else {
         self.accountInfo = undefined;
       }
-      $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
     });
     this.on("t", function (msg) {
       self.receiveServerTime(msg.t, msg.e || undefined);

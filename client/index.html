@@ -281,7 +281,20 @@
   <script src="./script.js"></script>
   <script src="./hats.js"></script>
   <script>
-    $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
+    window.onload = () => {
+      $.getScript("/ebsprite.js")
+        .done(() => {
+          if (typeof ebsprite !== "undefined" && typeof MPP !== "undefined" && MPP.client) {
+            ebsprite.start(MPP.client);
+          } else {
+            console.error("ebsprite or MPP.client is undefined.");
+          }
+        })
+        .fail((jqxhr, settings, exception) => {
+          console.error("Failed to load ebsprite.js:", exception);
+        });
+    };
+
   </script>
 </body>
 
