@@ -118,36 +118,22 @@
         <div id="vanish-btn" class="ugly-button" style="display: none;">Vanish</div>
         <div id="lang-btn" class="ugly-button">Language</div>
         <div id="eb-btn" class="ugly-button">Enable Sprites</div>
-
         <script>
-          let isRunning = false; // Start as running by default
+          let isRunning = false;
           const button = document.getElementById("eb-btn");
-          console.log('ebsprite status', isRunning)
-          function startEBSprite() {
-            ebsprite.start(MPP.client);
-            button.textContent = "Disable Sprites";
-          }
-          ebsprite.stop();
-          function stopEBSprite() {
-            ebsprite.stop();
-            button.textContent = "Enable Sprites";
-          }
+
           button.addEventListener("click", () => {
-            isRunning = !isRunning; // Toggle state first
             if (isRunning) {
-              startEBSprite();
-              console.log('run')
+              ebsprite.stop();
+              button.textContent = "Enable Sprites";
             } else {
-              stopEBSprite();
-              console.log('stop')
+              ebsprite.start(MPP.client);
+              button.textContent = "Disable Sprites";
             }
+            isRunning = !isRunning;
           });
-
-
-          // Automatically start ebsprite on page load
-          window.onload = startEBSprite;
+          //window.onload(ebsprite.start(MPP.client))
         </script>
-
 
         <script>
           function playRandomSound() {
@@ -304,7 +290,7 @@
   <script src="./Client.js"></script>
   <script src="./NoteQuota.js"></script>
   <script src="./Color.js"></script>
-  <script src="./ebsprite.js"></script>
+  <script src="/ebsprite.js"></script>
   <script src="https://unpkg.com/i18nextify@3.3.1/i18nextify.min.js" id="i18nextify" fallbacklng="en"
     integrity="sha256-Qe0fuK8+CJ5rVsP5a0+1dGBHLDJa7SOe5Aa5I0XUrws=" crossorigin="anonymous">
     </script>
