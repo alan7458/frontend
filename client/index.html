@@ -119,7 +119,6 @@
         <div id="lang-btn" class="ugly-button">Language</div>
         <div id="eb-btn" class="ugly-button">Disable Sprites</div>
         <script>
-          ebsprite.start(MPP.client);
           let isRunning = false;
           const button = document.getElementById("eb-btn");
 
@@ -133,6 +132,7 @@
             }
             isRunning = !isRunning;
           });
+          window.onload(ebsprite.start(MPP.client))
         </script>
 
         <script>
