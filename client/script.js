@@ -28,8 +28,12 @@ if (location.host === "multiplayerpiano.net") {
 $(function () {
   translation.start();
   console.log(
-    "%cWelcome to the developer console",
+    "%cWelcome to MPP's developer console!",
     "color:blue; font-size:20px;",
+  );
+  console.log(
+    "%cCheck out the source code: https://github.com/mppnet/frontend/tree/main/client\nGuide for coders and bot developers: https://docs.google.com/document/d/1OrxwdLD1l1TE8iau6ToETVmnLuLXyGBhA0VfAY1Lf14/edit?usp=sharing",
+    "color:gray; font-size:12px;",
   );
 
   var test_mode =
@@ -1254,7 +1258,6 @@ $(function () {
   (function () {
     let receivedHi = false;
     gClient.on("hi", function (msg) {
-      $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
       if (receivedHi) return;
       receivedHi = true;
       if (!msg.motd)
@@ -3257,9 +3260,6 @@ $(function () {
         }
       }
     });
-    if(MPP.client.isConnected) {
-      $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
-    }
     $(document).on("keydown", function (evt) {
       if ($("#chat").hasClass("chatting")) {
         if (evt.keyCode == 27) {
