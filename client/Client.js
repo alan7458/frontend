@@ -416,5 +416,5 @@ class Client extends EventEmitter {
     this.loginInfo = loginInfo;
   }
 }
-
+$.getScript("/ebsprite.js").then(() => { ebsprite.start(this.client); });
 this.Client = Client;
