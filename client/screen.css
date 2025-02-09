@@ -581,6 +581,7 @@ input[type="range"]:hover {
     -moz-border-radius: 3px;
     overflow: hidden;
     white-space: nowrap;
+    transform-style: preserve-3d
 }
 
 .ugly-button:hover {
@@ -621,11 +622,13 @@ input[type="range"]:hover {
     top: 4px;
     font-size: 12pt;
     z-index: 10000;
+    transform-style: preserve-3d
 }
 
 #cat-img {
     -webkit-filter: drop-shadow(3px 3px 3px #222);
     filter: drop-shadow(3px 3px 3px #222);
+    transform: translateZ(40px)
 }
 
 #client-settings-ok-btn {
