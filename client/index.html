@@ -117,6 +117,22 @@
         <div id="getcrown-btn" class="ugly-button" style="display: none;">Get Crown</div>
         <div id="vanish-btn" class="ugly-button" style="display: none;">Vanish</div>
         <div id="lang-btn" class="ugly-button">Language</div>
+        <div id="eb-btn" class="ugly-button"></div>
+        <script>
+          let isRunning = false;
+          const button = document.getElementById("eb-btn");
+          
+          button.addEventListener("click", () => {
+              if (isRunning) {
+                  ebsprite.stop();
+                  button.textContent = "Enable EBSprite";
+              } else {
+                  ebsprite.start(MPP.client);
+                  button.textContent = "Disable EBSprite";
+              }
+              isRunning = !isRunning;
+          });
+      </script>
 
         <script>
           function playRandomSound() {
