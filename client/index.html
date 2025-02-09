@@ -127,12 +127,11 @@
             ebsprite.start(MPP.client);
             button.textContent = "Disable Sprites";
           }
-
+          ebsprite.stop();
           function stopEBSprite() {
             ebsprite.stop();
             button.textContent = "Enable Sprites";
           }
-          stop.stopEBSprite()
           button.addEventListener("click", () => {
             isRunning = !isRunning; // Toggle state first
             if (isRunning) {
