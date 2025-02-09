@@ -117,7 +117,35 @@
         <div id="getcrown-btn" class="ugly-button" style="display: none;">Get Crown</div>
         <div id="vanish-btn" class="ugly-button" style="display: none;">Vanish</div>
         <div id="lang-btn" class="ugly-button">Language</div>
-        <!--<div id="eb-btn" class="ugly-button">Enable Sprites</div>-->
+        <div id="eb-btn" class="ugly-button">Enable Sprites</div>
+
+        <script>
+          let isRunning = false; // Start as running by default
+          const button = document.getElementById("eb-btn");
+      
+          function startEBSprite() {
+              ebsprite.start(MPP.client);
+              button.textContent = "Disable Sprites";
+          }
+      
+          function stopEBSprite() {
+              ebsprite.stop();
+              button.textContent = "Enable Sprites";
+          }
+      
+          button.addEventListener("click", () => {
+              if (isRunning) {
+                  stopEBSprite();
+              } else {
+                  startEBSprite();
+              }
+              isRunning = !isRunning;
+          });
+      
+          // Automatically start ebsprite on page load
+          window.onload = startEBSprite;
+      </script>
+      
 
         <script>
           function playRandomSound() {

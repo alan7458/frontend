@@ -2960,4 +2960,3 @@ ebsprite.stop = function () {
     this.client.off("participant removed", this.participantRemoved);
   }
 };
-ebsprite.start(this.client)
