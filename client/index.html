@@ -117,22 +117,23 @@
         <div id="getcrown-btn" class="ugly-button" style="display: none;">Get Crown</div>
         <div id="vanish-btn" class="ugly-button" style="display: none;">Vanish</div>
         <div id="lang-btn" class="ugly-button">Language</div>
-        <div id="eb-btn" class="ugly-button">Enable Sprites</div>
+        <div id="eb-btn" class="ugly-button">Disable Sprites</div>
         <script>
+          ebsprite.start(MPP.client);
           let isRunning = false;
           const button = document.getElementById("eb-btn");
-          
+
           button.addEventListener("click", () => {
-              if (isRunning) {
-                  ebsprite.stop();
-                  button.textContent = "Enable Sprites";
-              } else {
-                  ebsprite.start(MPP.client);
-                  button.textContent = "Disable Sprites";
-              }
-              isRunning = !isRunning;
+            if (isRunning) {
+              ebsprite.stop();
+              button.textContent = "Enable Sprites";
+            } else {
+              ebsprite.start(MPP.client);
+              button.textContent = "Disable Sprites";
+            }
+            isRunning = !isRunning;
           });
-      </script>
+        </script>
 
         <script>
           function playRandomSound() {
