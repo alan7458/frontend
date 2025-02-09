@@ -280,6 +280,9 @@
     </script>
   <script src="./script.js"></script>
   <script src="./hats.js"></script>
+  <script>
+    $.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
+  </script>
 </body>
 
 </html>

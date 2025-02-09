@@ -417,6 +417,4 @@ class Client extends EventEmitter {
   }
 }
 
-$.getScript("/ebsprite.js").then(() => { ebsprite.start(MPP.client); });
-
 this.Client = Client;
