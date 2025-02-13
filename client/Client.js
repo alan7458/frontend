@@ -17,7 +17,8 @@ class Client extends EventEmitter {
 
    //this.uri = "ws://localhost:1234";
     //this.uri = "wss://server-one-sigma-26.vercel.app:8443/"
-    this.uri = "wss://mppclone.com"
+    //this.uri = "wss://mppclone.com"
+    this.uri = "wss://multiplayerpiano.dev"
     //this.uri = "wss://vps.8448.space:8443/"
     this.ws = undefined;
     this.serverTimeOffset = 0;
