@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 1233;
 
 // Serve all files in the client directory
 app.use(express.static(path.join(__dirname, 'client')));
