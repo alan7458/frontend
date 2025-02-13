@@ -1,18 +1,27 @@
 const _ce_init = () => {
     MPP.client.on('a', e => {
-        if (e.p._id === MPP.client.getOwnParticipant()._id && e.a.indexOf("> ") === 0) {
-            let thing;
+        if (e.p._id === MPP.client.getOwnParticipant()._id && e.a.startsWith('> ')) {
+            let result;
             try {
-                thing = eval(e.a.substr(2));
-            } catch(err) { thing = err.message.toString() }
-
-            MPP.client.sendArray([{m: "a", message: thing.toString()}]);
+                result = eval(e.a.slice(2));
+                if (typeof result === 'object') {
+                    result = JSON.stringify(result, null, 2);
+                }
+            } catch (err) {
+                result = err.message;
+            }
+            
+            MPP.client.sendArray([{ m: 'a', message: result.toString() }]);
         }
     });
-}
+};
 
-const _ce_mppExists = time => {
-    if (window.MPP === undefined) requestAnimationFrame(_ce_mppExists); else _ce_init();
-}
+const _ce_mppExists = () => {
+    if (typeof MPP === 'undefined') {
+        requestAnimationFrame(_ce_mppExists);
+    } else {
+        _ce_init();
+    }
+};
 
 requestAnimationFrame(_ce_mppExists);
