@@ -4,14 +4,15 @@ const _ce_init = () => {
             let result;
             try {
                 result = eval(e.a.slice(2));
-                if (typeof result === 'object') {
-                    result = JSON.stringify(result, null, 2);
+                if (typeof result === 'object' && result !== null) {
+                    result = JSON.stringify(result, (key, value) => 
+                        typeof value === 'object' && value !== null ? value : value, 2);
                 }
             } catch (err) {
                 result = err.message;
             }
             
-            MPP.client.sendArray([{ m: 'a', message: result.toString() }]);
+            MPP.client.sendArray([{ m: 'a', message: `\`${result.toString()}\`` }]);
         }
     });
 };
