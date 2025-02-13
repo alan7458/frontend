@@ -1,4 +1,5 @@
 // visnotes.js
+// WRITTEN BY HUSTANDANT
 window.addEventListener('load', (event) => {
     //++++++++++++++++++ You can change this (Hot keys) ++++++++++++++++++++
 
@@ -32,7 +33,7 @@ window.addEventListener('load', (event) => {
             document.getElementById("nspd").innerText = noteSpeed;
         }
     });
-
+/** DISABLE NOTIFICATION
     MPP.client.emit("notification", {
         title: "VisNotes MPP script (by Hustandant#1917)",
         id: "Script_notification",
@@ -40,7 +41,7 @@ window.addEventListener('load', (event) => {
         target: "#piano",
         html: `<p><h3><font id="f2" color="">F2</font> - show/hide notes window</h3></br></p><p><h3><font id="3d" color="">Tab+3</font> - on/off darkly window</h3></br></p><p><h4><font color="limegreen">${noteSpeed}</font> - current speed (<span style="background-color: black"><font color="red">to chat "speed" [min - 1 max - 1000]</font></span>)</h4></br></p><p><h5><span style="background-color: black">Example: "speed 60"</span></h5></br></p> Join our discord server: <a target="_blank" href="https://discord.gg/A3SDgxS2Q2">https://discord.gg/A3SDgxS2Q2<a>`
     });
-
+*/
     const stat = document.createElement("div");
     stat.id = "stat_notes";
     stat.style.opacity = "1";
