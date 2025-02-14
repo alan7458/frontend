@@ -1196,9 +1196,9 @@ $(function () {
 
   var wssport = 8443;
   if (window.location.hostname === "localhost") {
-    var gClient = new Client("ws://localhost:8443");
+    var gClient = new Client("wss://mc.hri7566.info:5462/");
   } else {
-    var gClient = new Client("wss://mppclone.com");
+    var gClient = new Client("wss://mc.hri7566.info:5462/");
   }
   if (loginInfo) {
     gClient.setLoginInfo(loginInfo);
