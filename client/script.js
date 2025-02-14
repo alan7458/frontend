@@ -1196,9 +1196,11 @@ $(function () {
 
   var wssport = 8443;
   if (window.location.hostname === "localhost") {
-    var gClient = new Client("wss://mc.hri7566.info:5462/");
+    //var gClient = new Client("wss://mc.hri7566.info:5462/");
+    var gClient = new Client("wss://mpp.lapishusky.dev")
   } else {
-    var gClient = new Client("wss://mc.hri7566.info:5462/");
+    //var gClient = new Client("wss://mc.hri7566.info:5462/");
+    var gClient = new Client("wss://mpp.lapishusky.dev")
   }
   if (loginInfo) {
     gClient.setLoginInfo(loginInfo);
