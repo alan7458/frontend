@@ -1,18 +1,38 @@
 const _ce_init = () => {
+    if (_ce_init._initialized) return;
+    _ce_init._initialized = true;
+
+    let processedMessages = new Set();  // Track processed messages
+
     MPP.client.on('a', e => {
         if (e.p._id === MPP.client.getOwnParticipant()._id && e.a.startsWith('> ')) {
             let result;
             try {
                 result = eval(e.a.slice(2));
-                if (typeof result === 'object' && result !== null) {
-                    result = JSON.stringify(result, (key, value) => 
-                        typeof value === 'object' && value !== null ? value : value, 2);
+
+                // Explicitly handle undefined, null, and other special values
+                if (typeof result === 'undefined') {
+                    result = 'undefined';
+                } else if (result === null) {
+                    result = 'null';
+                } else if (Number.isNaN(result)) {
+                    result = 'NaN';
+                } else if (typeof result === 'object') {
+                    try {
+                        result = JSON.stringify(result, null, 2);
+                    } catch {
+                        result = '[Unserializable Object]';
+                    }
                 }
             } catch (err) {
                 result = err.message;
             }
-            
-            MPP.client.sendArray([{ m: 'a', message: `\`${result.toString()}\`` }]);
+
+            // Prevent duplicate responses
+            if (!processedMessages.has(result)) {
+                MPP.client.sendArray([{ m: 'a', message: `\`${result}\`` }]);
+                processedMessages.add(result);  // Add result to the processed set
+            }
         }
     });
 };
