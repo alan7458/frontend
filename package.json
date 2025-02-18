@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.21.2",
     "mime": "^4.0.6",
-    "uwebsockets.js": "19.0.0-docs"
+    "uwebsockets.js": "19.0.0-docs",
+    "ws": "^8.18.0"
   }
 }

@@ -42,6 +42,7 @@ window.addEventListener('load', (event) => {
         html: `<p><h3><font id="f2" color="">F2</font> - show/hide notes window</h3></br></p><p><h3><font id="3d" color="">Tab+3</font> - on/off darkly window</h3></br></p><p><h4><font color="limegreen">${noteSpeed}</font> - current speed (<span style="background-color: black"><font color="red">to chat "speed" [min - 1 max - 1000]</font></span>)</h4></br></p><p><h5><span style="background-color: black">Example: "speed 60"</span></h5></br></p> Join our discord server: <a target="_blank" href="https://discord.gg/A3SDgxS2Q2">https://discord.gg/A3SDgxS2Q2<a>`
     });
 */
+/*
     const stat = document.createElement("div");
     stat.id = "stat_notes";
     stat.style.opacity = "1";
@@ -56,7 +57,7 @@ window.addEventListener('load', (event) => {
     stat.style["font-size"] = "21px"
     stat.innerHTML = `Notes: <span id="notes">0</span> NPS: <span id="nps">0</span> Speed: <span id="nspd">${localStorage.getItem("speed")}</span> NQ: <span id="nquota">${MPP.noteQuota.points}</span> Ping: <span id="ping"></span> FPS: <span id="fps"></span>`;
     stat.style.marginLeft = `${String(document.getElementById("piano").offsetLeft + document.getElementById("piano").getElementsByTagName("canvas")[0].offsetLeft)}px`;
-
+*/
 
     const canvas = document.createElement("canvas");
     canvas.height = parseInt(document.getElementById("piano").style["margin-top"]);

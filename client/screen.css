@@ -644,6 +644,16 @@ input[type="range"]:hover {
     transform-style: preserve-3d
 }
 
+#gameCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+
 #cat-img {
     -webkit-filter: drop-shadow(3px 3px 3px #222);
     filter: drop-shadow(3px 3px 3px #222);
@@ -1123,6 +1133,7 @@ input[type="range"]:hover {
     font-size: 13px;
     color: #fff;
     text-shadow: #888 1px 1px;
+    pointer-events: auto;
 }
 
 #chat,
