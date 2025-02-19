@@ -129,7 +129,7 @@ window.addEventListener('load', (event) => {
     }
 
     document.body.append(canvas);
-    document.body.append(stat);
+    //document.body.append(stat);
 
     window.addEventListener('resize', resize);
 

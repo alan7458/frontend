@@ -1921,7 +1921,7 @@ $(function () {
           " 0%," +
           old_color2.toHexa() +
           " 100%)";
-        bottom.style.background = old_color2.toHexa();
+        //bottom.style.background = old_color2.toHexa();
         if (++step >= steps) {
           clearInterval(iv);
           old_color1 = color1;
@@ -1932,7 +1932,8 @@ $(function () {
             " 0%," +
             color2.toHexa() +
             " 100%)";
-          bottom.style.background = color2.toHexa();
+          //bottom.style.background = color2.toHexa();
+          bottom.style.background = "#00000080"
         }
       }, step_ms);
     }
