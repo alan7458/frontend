@@ -9,7 +9,7 @@ var ebcanv = `<canvas id="ebbattle" style="
             top: 0;
             left: 0;
             z-index: -10000000;
-        image-rendering: smooth;
+        image-rendering: pixelated;
     ">`;
     $("body").append(ebcanv);
 
