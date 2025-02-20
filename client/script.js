@@ -1933,7 +1933,7 @@ $(function () {
             color2.toHexa() +
             " 100%)";
           //bottom.style.background = color2.toHexa();
-          bottom.style.background = "#00000080"
+          bottom.style.background = "#00000000"
         }
       }, step_ms);
     }

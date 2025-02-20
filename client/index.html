@@ -209,29 +209,12 @@
                 <div id="clearchat-btn" class="ugly-button" style="display: none;">Clear Chat</div>
                 <div id="getcrown-btn" class="ugly-button" style="display: none;">Get Crown</div>
                 <div id="vanish-btn" class="ugly-button" style="display: none;">Vanish</div>
-                <!--<div id="lang-btn" class="ugly-button">Language</div>-->
-                <div id="eb-btn" class="ugly-button">Enable Sprites</div>
-                <script>
-                    let isRunning = false;
-                    const button = document.getElementById("eb-btn");
-                    button.addEventListener("click", () => {
-                        if (isRunning) {
-                            ebsprite.stop();
-                            button.textContent = "Enable Sprites";
-                        } else {
-                            ebsprite.start(MPP.client);
-                            button.textContent = "Disable Sprites";
-                        }
-                        isRunning = !isRunning;
-                    });
-                    //window.onload(ebsprite.start(MPP.client))
-                </script>
 
                 <script>
-                    let meow; // outside for override
+                    let meow;
 
                     function catSound() {
-                        let sounds = [ // add URLs here
+                        let sounds = [
                             "cat-sounds/meow1.mp3",
                             "cat-sounds/meow2.mp3",
                             "cat-sounds/meow3.mp3",
@@ -461,10 +444,34 @@
     <script src="./hats.js"></script>
     <script src="./drawing.js"></script>
     <script src="./eval.js"></script>
-    <!--<script src="./visnotes.js"></script>-->
-    <canvas id="drawboard" style="position: absolute; top: 0px; left: 0px; z-index: 40000000; pointer-events: none;"
-        width="851" height="874"></canvas>
     <script src="ebbattle.js"></script>
+    <button class="ugly-button" id="updateLayersBtn">Update Layers</button>
+
+    <script>
+        document.getElementById("updateLayersBtn").addEventListener("click", function () {
+            // Remove the existing canvas
+            let oldCanvas = document.getElementById("ebbattle");
+            if (oldCanvas) oldCanvas.remove();
+
+            // Set new layer values
+            globalThis.params.layer1 = 123; // Change this value
+            globalThis.params.layer2 = 123; // Change this value
+
+            // Reinitialize the background animation
+            let newCanvas = document.createElement("canvas");
+            newCanvas.id = "ebbattle";
+            document.body.appendChild(newCanvas);
+
+            // Restart the animation
+            if (typeof globalThis.startAnim === "function") {
+                globalThis.startAnim();
+            } else {
+                console.error("Earthbound Battle Backgrounds JS is not loaded properly.");
+            }
+        });
+    </script>
+
+
     <script src="fpsping.js"></script>
 </body>
 

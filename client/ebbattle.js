@@ -29,7 +29,7 @@ var ebcanv = `<canvas id="ebbattle" style="
         padding: '5px 10px',
         fontFamily: 'Arial, sans-serif',
         fontSize: '14px',
-        borderRadius: '2px',
+        borderRadius: '5px',
         zIndex: '-1000'
     });
 
