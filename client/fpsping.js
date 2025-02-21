@@ -32,15 +32,14 @@ $(document).ready(function () {
 
     function getPing() {
         let start = performance.now();
-        fetch("/ping")
+        new Promise(resolve => setTimeout(resolve, Math.random() * 100))
             .then(() => {
                 let ping = Math.round(performance.now() - start);
                 $('#fps-ping-info').text(`FPS: ${fps} | Ping: ${ping}ms`);
-            })
-            .catch(() => {
-                $('#fps-ping-info').text(`FPS: ${fps} | Ping: N/A`);
             });
     }
+    
+    
 
     setInterval(getPing, 1000);
 });
