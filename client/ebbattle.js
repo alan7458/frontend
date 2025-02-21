@@ -2,6 +2,7 @@
 
 var ebcanv = `<canvas id="ebbattle" style="
                     padding: 0;
+                    display: none;
             margin: 0;
             width: 100%;
             height: 100%;
@@ -11,39 +12,74 @@ var ebcanv = `<canvas id="ebbattle" style="
             z-index: -10000000;
         image-rendering: pixelated;
     ">`;
-    $("body").append(ebcanv);
+$("body").append(ebcanv);
 
   globalThis.params = {
     layer1: 235,  // dont touch this one
     layer2: 44
   }
 
-  $(document).ready(function () {
-    // Create and style the corner text element
-    let layerText = $('<div id="layer-info">EB Background</div>').css({
-        position: 'fixed',
-        bottom: '75px',
-        right: '10px',
-        background: '#00000050',
-        color: 'white',
-        padding: '5px 10px',
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '14px',
-        borderRadius: '5px',
-        zIndex: '-1000'
-    });
+$(document).ready(function () {
+  // Create and style the corner text element
+  let layerText = $('<div id="layer-info">EB Background</div>').css({
+    position: 'fixed',
+    bottom: '75px',
+    right: '10px',
+    background: '#00000050',
+    color: 'white',
+    padding: '5px 10px',
+    fontFamily: 'Arial, sans-serif',
+    fontSize: '14px',
+    borderRadius: '5px',
+    zIndex: '-1000'
+  });
 
-    // Append to body
-    $("body").append(layerText);
+  // Append to body
+  $("body").append(layerText);
 
-    // Function to update layer values
-    function updateLayerText() {
-        $('#layer-info').text(`EB Background\nLayer 1: ${globalThis.params.layer1} | Layer 2: ${globalThis.params.layer2}`);
-    }
+  // Function to update layer values
+  function updateLayerText() {
+    $('#layer-info').text(`EB Background\nLayer 1: ${globalThis.params.layer1} | Layer 2: ${globalThis.params.layer2}`);
+  }
 
-    // Initial update and set interval for live updates
-    updateLayerText();
-    setInterval(updateLayerText, 1000);
+  // Initial update and set interval for live updates
+  updateLayerText();
+  setInterval(updateLayerText, 1000);
+});
+
+// toggle button
+let toggleButton = $('<button class="ugly-button">Enable ebbattle.js</button>').css({
+    height: 'fit-content',
+    fontSize: '12px',
+    background: 'rgba(0, 0, 0, 0.314)',
+    border: '1px solid #ffffff2f',
+    padding: '5px',
+    cursor: 'pointer',
+    lineHeight: '12px',
+    borderRadius: '5px',
+    WebkitBorderRadius: '5px',
+    MozBorderRadius: '5px',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    backdropFilter: 'blur(10px)',
+    color: 'white'
+});
+
+$("#buttons").append(toggleButton);
+
+toggleButton.on("click", function () {
+  let canvas = $("#ebbattle");
+  let infoBox = $("#layer-info");
+
+  if (canvas.css("display") === "none") {
+      canvas.show();
+      //infoBox.show();
+      toggleButton.text("Disable ebbattle.js");
+  } else {
+      canvas.hide();
+      //infoBox.hide();
+      toggleButton.text("Enable ebbattle.js");
+  }
 });
 
 

@@ -71,101 +71,7 @@
 
     </style>
     <div id="piano"></div>
-    <!--
-    <style>
-        #sphereCanvas {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            width: 80%;
-            height: 80%;
-        }
-    </style>
-    <canvas id="sphereCanvas"></canvas>
-    <script>
-        const canvas = document.getElementById('sphereCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const radius = Math.min(centerX, centerY) * 0.25; // Reduced radius for zoom out
-
-        let rotationX = 0;
-        let rotationY = 0;
-        let cameraZ = -3 * radius; // Camera Z position (zoom out)
-
-        function drawSphere() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            const segments = 60;
-            const points = [];
-
-            for (let i = 0; i <= segments; i++) {
-                const lat = (i / segments) * Math.PI;
-                for (let j = 0; j <= segments; j++) {
-                    const lon = (j / segments) * 2 * Math.PI;
-
-                    let x = radius * Math.sin(lat) * Math.cos(lon);
-                    let y = radius * Math.cos(lat);
-                    let z = radius * Math.sin(lat) * Math.sin(lon);
-
-                    let rotatedX = x * Math.cos(rotationY) - z * Math.sin(rotationY);
-                    let rotatedZ = x * Math.sin(rotationY) + z * Math.cos(rotationY);
-
-                    let rotatedY = y * Math.cos(rotationX) - rotatedZ * Math.sin(rotationX);
-                    rotatedZ = y * Math.sin(rotationX) + rotatedZ * Math.cos(rotationX);
-
-                    // Perspective projection (using camera Z)
-                    const perspectiveFactor = 200 / (200 - (rotatedZ - cameraZ)); // Use cameraZ
-                    const screenX = centerX + rotatedX * perspectiveFactor;
-                    const screenY = centerY + rotatedY * perspectiveFactor;
-
-                    points.push({ x: screenX, y: screenY });
-                }
-            }
-
-            ctx.strokeStyle = 'white';
-            ctx.lineWidth = 1;
-
-            for (let i = 0; i <= segments; i++) {
-                for (let j = 0; j <= segments; j++) {
-                    const index = i * (segments + 1) + j;
-
-                    if (j < segments) {
-                        drawLine(points[index], points[index + 1]);
-                    }
-
-                    if (i < segments) {
-                        drawLine(points[index], points[index + segments + 1]);
-                    }
-                }
-            }
-        }
-
-        function drawLine(p1, p2) {
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-        }
-
-        function animate() {
-            rotationY += 0.0008;
-            rotationX += 0.005;
-            drawSphere();
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
--->
-
-
+    
     <div id="cursors"></div>
 
     <div id="meow-btn" onclick="playRandomSound()"><img id="cat-img" src="./kitten1.png"></div>
@@ -445,31 +351,7 @@
     <script src="./drawing.js"></script>
     <script src="./eval.js"></script>
     <script src="ebbattle.js"></script>
-    <button class="ugly-button" id="updateLayersBtn">Update Layers</button>
-
-    <script>
-        document.getElementById("updateLayersBtn").addEventListener("click", function () {
-            // Remove the existing canvas
-            let oldCanvas = document.getElementById("ebbattle");
-            if (oldCanvas) oldCanvas.remove();
-
-            // Set new layer values
-            globalThis.params.layer1 = 123; // Change this value
-            globalThis.params.layer2 = 123; // Change this value
-
-            // Reinitialize the background animation
-            let newCanvas = document.createElement("canvas");
-            newCanvas.id = "ebbattle";
-            document.body.appendChild(newCanvas);
-
-            // Restart the animation
-            if (typeof globalThis.startAnim === "function") {
-                globalThis.startAnim();
-            } else {
-                console.error("Earthbound Battle Backgrounds JS is not loaded properly.");
-            }
-        });
-    </script>
+    <script src="./cursortrail.js"></script>
 
 
     <script src="fpsping.js"></script>
