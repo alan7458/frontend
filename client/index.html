@@ -71,8 +71,135 @@
 
     </style>
     <div id="piano"></div>
-    
+
     <div id="cursors"></div>
+
+    <div id="ebconfig">
+        <style>
+            #ebconfig {
+                width: 180px;
+                padding: 8px;
+                border: 1px solid #ffffff2f;
+                background: rgba(0, 0, 0, 0.314);
+                position: absolute;
+                bottom: 50px;
+                right: 20px;
+                border-radius: 5px;
+                z-index: 10000;
+                backdrop-filter: blur(10px);
+                font-size: 12px;
+            }
+
+            .ebtitle {
+                border-bottom: 1px solid #f50;
+                font-size: 16px;
+                font-weight: 700;
+                padding-bottom: 5px;
+                margin-bottom: 8px;
+            }
+
+            .ebinput {
+                width: 95%;
+                margin-bottom: 3px;
+                padding: 2px;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                font-size: 12px;
+            }
+
+            .ebbutton {
+                margin-top: 4px;
+                width: 100%;
+                padding: 6px;
+                background: rgba(255, 239, 68, 0.911);
+                color: black;
+                border: none;
+                cursor: pointer;
+                border-radius: 3px;
+                font-size: 12px;
+                box-shadow: inset 0 0 4px #000;
+                -webkit-box-shadow: inset 0 0 4px #000;
+                -moz-box-shadow: inset 0 0 4px #000;
+            }
+
+            .ebbutton:hover {
+                background: #ff8;
+            }
+
+            label {
+                font-size: 11px;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .ebcurrent {
+                font-size: 11px;
+                color: #ccc;
+                margin-bottom: 5px;
+            }
+
+            #randomizeButton {
+                font-size: 11px;
+            }
+        </style>
+
+        <div class="ebtitle">ebbattle.js</div>
+
+        <label for="layer1">Layer 1:</label>
+        <input type="number" id="layer1" class="ebinput" value="170">
+        <div class="ebcurrent">Current: <span id="currentLayer1">170</span></div>
+
+        <label for="layer2">Layer 2:</label>
+        <input type="number" id="layer2" class="ebinput" value="169">
+        <div class="ebcurrent">Current: <span id="currentLayer2">169</span></div>
+        <button id="randomizeButton">Random Layers</button>
+        <button id="reloadButton" class="ebbutton">Reload</button>
+    </div>
+
+    <script>
+        // Set initial values from globalThis.params or default values
+        globalThis.params = globalThis.params || {};
+        document.getElementById("layer1").value = globalThis.params.layer1 || 44;
+        document.getElementById("layer2").value = globalThis.params.layer2 || 44;
+        document.getElementById("currentLayer1").textContent = document.getElementById("layer1").value;
+        document.getElementById("currentLayer2").textContent = document.getElementById("layer2").value;
+    
+        function randomizeLayers() {
+            const randomLayer1 = Math.floor(Math.random() * 51) + 150; // Random number between 150 and 200
+            const randomLayer2 = Math.floor(Math.random() * 51) + 150;
+    
+            document.getElementById("layer1").value = randomLayer1;
+            document.getElementById("layer2").value = randomLayer2;
+        }
+    
+        function updateCurrentValues() {
+            document.getElementById("currentLayer1").textContent = document.getElementById("layer1").value;
+            document.getElementById("currentLayer2").textContent = document.getElementById("layer2").value;
+        }
+    
+        document.getElementById("randomizeButton").addEventListener("click", randomizeLayers);
+    
+        document.getElementById("reloadButton").addEventListener("click", function () {
+            globalThis.params = {
+                layer1: parseInt(document.getElementById("layer1").value) || 170,
+                layer2: parseInt(document.getElementById("layer2").value) || 169,
+                //frameskip: parseInt(document.getElementById("frameskip").value) || 1,
+                //aspectRatio: parseInt(document.getElementById("aspectRatio").value) || 16
+            };
+    
+            updateCurrentValues(); // Update display only when reloading
+    
+            if (typeof setupEngine === "function") {
+                setupEngine();
+                console.log("ebbattle reloaded with new params:", globalThis.params);
+            } else {
+                console.error("setupEngine function not found.");
+            }
+        });
+    </script>
+
+
+
 
     <div id="meow-btn" onclick="playRandomSound()"><img id="cat-img" src="./kitten1.png"></div>
     <noscript translated>
@@ -353,6 +480,7 @@
     <script src="ebbattle.js"></script>
     <script src="./cursortrail.js"></script>
     <script src="./visnotes.js"></script>
+    <script src="./ebbatloader.js"></script>
 
 
     <script src="fpsping.js"></script>
