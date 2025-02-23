@@ -7,6 +7,8 @@ var ebcanv = `<canvas id="ebbattle" style="
             top: 0;
             left: 0;
         image-rendering: pixelated;
+        display: none;
+        z-index: -100000000000
     ">`;
 $("body").append(ebcanv);
 
@@ -17,85 +19,8 @@ var ctx = canvas.getContext("2d");
 
 globalThis.params = {
   layer1: 44,
-  layer2: 44
+  layer2: 244
 };
-
-$(document).ready(function () {
-  function appendElements() {
-    $('body').append(`
-
-
-
-      
-          <script>
-  globalThis.params = globalThis.params || {};
-
-  $('#layer1').val(globalThis.params.layer1 || 44);
-  $('#layer2').val(globalThis.params.layer2 || 44);
-  $('#currentLayer1').text($('#layer1').val());
-  $('#currentLayer2').text($('#layer2').val());
-
-  function randomizeLayers() {
-    $('#layer1').val(Math.floor(Math.random() * 300));
-    $('#layer2').val(Math.floor(Math.random() * 300));
-  }
-
-  function updateCurrentValues() {
-    $('#currentLayer1').text($('#layer1').val());
-    $('#currentLayer2').text($('#layer2').val());
-  }
-
-  $('#randomizeButton').click(randomizeLayers);
-
-  $('#reloadButton').click(function () {
-    globalThis.params = {
-      layer1: parseInt($('#layer1').val()) || 170,
-      layer2: parseInt($('#layer2').val()) || 169
-    };
-
-    updateCurrentValues();
-
-    if (typeof setupEngine === 'function') {
-      setupEngine();
-      console.log('ebbattle reloaded with new params:', globalThis.params);
-    } else {
-      console.error('setupEngine function not found.');
-    }
-  });
-  </script>
-      `);
-  }
-
-  appendElements();
-
-
-  $('.buttons').append('<div id="eb-settings-btn" class="ugly-button">EB Settings</div>');
-
-  $(document).on('click', '#eb-settings-btn', function () {
-    let button = $(this);
-    let config = $('#ebconfig'); // Define config element
-
-    let buttonOffset = button.offset();
-    let buttonHeight = button.outerHeight();
-
-    let configHeight = config.outerHeight();
-    let configWidth = config.outerWidth();
-    let buttonWidth = button.outerWidth();
-
-    config.css({
-      "position": "absolute",
-      "top": buttonOffset.top - config.outerHeight() - 10,
-      "left": buttonOffset.left + (buttonWidth / 2) - (configWidth / 2),
-    });
-
-    config.stop().fadeToggle("fast");
-  });
-
-
-
-});
-
-
 
 
 

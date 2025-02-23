@@ -1,3 +1,4 @@
+
 const translation = window.i18nextify.init({
   autorun: false,
 });
@@ -1758,7 +1759,7 @@ $(function () {
     }
   });
 
-  /*function eb() {
+  function eb() {
     if(gClient.channel && gClient.channel._id.toLowerCase() === "test/fishing") {
       ebsprite.start(gClient);
     } else {
@@ -1768,8 +1769,7 @@ $(function () {
   if(ebsprite) {
     gClient.on("ch", eb);
     eb();
-  }*/
-
+  }
   // Crownsolo notice
   gClient.on("ch", function (msg) {
     let notice = "";

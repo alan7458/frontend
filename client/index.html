@@ -5,17 +5,20 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>mpp.7458.space</title>
     <meta name="title" content="mpp.7458.space" />
-    <meta name="description" content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
+    <meta name="description"
+        content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mpp.7458.space" />
     <meta property="og:title" content="mpp.7458.space" />
-    <meta property="og:description" content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
+    <meta property="og:description"
+        content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
     <meta property="og:image" content="https://mpp.7458.space/screenshot.png" />
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://mpp.7458.space" />
     <meta property="twitter:title" content="mpp.7458.space" />
-    <meta property="twitter:description" content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
+    <meta property="twitter:description"
+        content="mpp.7458.space is my custom multiplayer piano frontend, with all sorts of useless, laggy features such as ebbattle.js and ebsprite. There is also lots of CSS blur." />
     <meta property="twitter:image" content="https://mpp.7458.space/screenshot.png" />
     <link rel="stylesheet" href="./screen.css" />
 </head>
@@ -44,35 +47,49 @@
     <div id="cursors"></div>
 
 
-    <div id="ebconfig" style="width: 400px; padding: 10px; border: 1px solid #ffffff2f; background: rgba(0, 0, 0, 0.314); position: absolute; border-radius: 5px; z-index: 10000; backdrop-filter: blur(10px); font-size: 12px; display: none;">
-        <div class="ebtitle" style="border-bottom: 1px solid #f50; font-size: 16px; font-weight: 700; padding-bottom: 5px; margin-bottom: 8px;">EB Settings</div>
-        
+    <div id="ebconfig"
+        style="width: 400px; padding: 10px; border: 1px solid #ffffff2f; background: rgba(0, 0, 0, 0.314); position: absolute; border-radius: 5px; z-index: 10000; backdrop-filter: blur(10px); font-size: 12px; display: none;">
+        <div class="ebtitle"
+            style="border-bottom: 1px solid #f50; font-size: 16px; font-weight: 700; padding-bottom: 5px; margin-bottom: 8px;">
+            EB Settings</div>
+
         <div style="display: flex; gap: 10px;">
             <!-- Left Column: EB Settings -->
             <div style="width: 50%;">
                 <label for="layer1" style="font-size: 11px; display: block; margin-bottom: 2px;">Layer 1:</label>
-                <input type="number" id="layer1" class="ebinput" style="width: 95%; margin-bottom: 3px; padding: 2px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px;" value="170">
-                <div class="ebcurrent" id="currentLayer1" style="font-size: 11px; color: #ccc; margin-bottom: 5px;">Current: 170</div>
-    
+                <input type="number" id="layer1" class="ebinput"
+                    style="width: 95%; margin-bottom: 3px; padding: 2px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px;"
+                    value="170">
+                <div class="ebcurrent" id="currentLayer1" style="font-size: 11px; color: #ccc; margin-bottom: 5px;">
+                    Current: 170</div>
+
                 <label for="layer2" style="font-size: 11px; display: block; margin-bottom: 2px;">Layer 2:</label>
-                <input type="number" id="layer2" class="ebinput" style="width: 95%; margin-bottom: 3px; padding: 2px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px;" value="169">
-                <div class="ebcurrent" id="currentLayer2" style="font-size: 11px; color: #ccc; margin-bottom: 5px;">Current: 169</div>
-    
+                <input type="number" id="layer2" class="ebinput"
+                    style="width: 95%; margin-bottom: 3px; padding: 2px; border: 1px solid #ccc; border-radius: 3px; font-size: 12px;"
+                    value="169">
+                <div class="ebcurrent" id="currentLayer2" style="font-size: 11px; color: #ccc; margin-bottom: 5px;">
+                    Current: 169</div>
+
                 <button id="randomizeButton" style="font-size: 11px;">Random Layers</button>
-                <button id="reloadButton" class="ebbutton" style="margin-top: 4px; width: 100%; padding: 6px; background: rgba(255, 239, 68, 0.911); color: black; border: none; cursor: pointer; border-radius: 3px; font-size: 12px; box-shadow: inset 0 0 4px #000;">Reload</button>
+                <button id="reloadButton" class="ebbutton"
+                    style="margin-top: 4px; width: 100%; padding: 6px; background: rgba(255, 239, 68, 0.911); color: black; border: none; cursor: pointer; border-radius: 3px; font-size: 12px; box-shadow: inset 0 0 4px #000;">Reload</button>
             </div>
-    
+
             <!-- Right Column: Enable/Disable Scripts -->
             <div style="width: 50%; border-left: 1px solid #ffffff2f; padding-left: 10px;">
                 <div style="font-size: 14px; font-weight: bold; margin-bottom: 6px;">Scripts</div>
-    
-                <button id="toggleEbbattle" class="ebbutton" style="margin-bottom: 6px; font-size: 11px;">Toggle ebbattle.js</button>
-    
-                <button id="toggleEbsprite" class="ebbutton" style="margin-bottom: 6px; font-size: 11px;">Toggle ebsprite.js</button>
+
+                <button id="toggleEbbattle" class="ebbutton" style="margin-bottom: 6px; font-size: 11px;">Toggle
+                    ebbattle.js</button>
+
+                <button id="toggleEbsprite" class="ebbutton" style="display: none; margin-bottom: 6px; font-size: 11px;">Toggle
+                    ebsprite.js</button>
+                <br>
+                <p>More coming soon... contact bmp7458 on discord.</p>
             </div>
         </div>
     </div>
-    
+
     <div id="meow-btn" onclick="playRandomSound()">
         <img id="cat-img" src="./kitten1.png">
     </div>
@@ -301,11 +318,81 @@
     <script src="./ebsprite.js"></script>
     <script src="https://unpkg.com/i18nextify@3.3.1/i18nextify.min.js" id="i18nextify" fallbacklng="en"
         integrity="sha256-Qe0fuK8+CJ5rVsP5a0+1dGBHLDJa7SOe5Aa5I0XUrws=" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js">ebsprite.start(gClient)</script>
     <script src="./eval.js"></script>
     <script src="ebbattle.js"></script>
     <script src="./visnotes.js"></script>
     <script src="fpsping.js"></script>
+    <script>
+        $("#toggleEbbattle").click(function () {
+            $("#ebbattle").toggle();
+        });
+    </script>
+    <script>
+    </script>
+    <script>
+        globalThis.params = globalThis.params || {};
+
+        $('#layer1').val(globalThis.params.layer1 || 44);
+        $('#layer2').val(globalThis.params.layer2 || 44);
+        $('#currentLayer1').text($('#layer1').val());
+        $('#currentLayer2').text($('#layer2').val());
+
+        function randomizeLayers() {
+            $('#layer1').val(Math.floor(Math.random() * 300));
+            $('#layer2').val(Math.floor(Math.random() * 300));
+        }
+
+        function updateCurrentValues() {
+            $('#currentLayer1').text($('#layer1').val());
+            $('#currentLayer2').text($('#layer2').val());
+        }
+
+        $('#randomizeButton').click(randomizeLayers);
+
+        $('#reloadButton').click(function () {
+            globalThis.params = {
+                layer1: parseInt($('#layer1').val()) || 170,
+                layer2: parseInt($('#layer2').val()) || 169
+            };
+
+            updateCurrentValues();
+
+            if (typeof setupEngine === 'function') {
+                setupEngine();
+                console.log('ebbattle reloaded with new params:', globalThis.params);
+            } else {
+                console.error('setupEngine function not found.');
+            }
+        });
+
+        $(document).ready(function () {
+            $('.buttons').append('<div id="eb-settings-btn" class="ugly-button">EB Settings</div>');
+
+            $(document).on('click', '#eb-settings-btn', function () {
+                let button = $(this);
+                let config = $('#ebconfig'); // Define config element
+
+                let buttonOffset = button.offset();
+                let buttonHeight = button.outerHeight();
+
+                let configHeight = config.outerHeight();
+                let configWidth = config.outerWidth();
+                let buttonWidth = button.outerWidth();
+
+                config.css({
+                    "position": "absolute",
+                    "top": buttonOffset.top - config.outerHeight() - 10,
+                    "left": buttonOffset.left + (buttonWidth / 2) - (configWidth / 2),
+                });
+
+                config.stop().fadeToggle("fast");
+            });
+
+
+
+        });
+    </script>
 </body>
 
 </html>
