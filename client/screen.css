@@ -1226,6 +1226,7 @@ input[type="range"]:hover {
 
 #chat li .message {
     margin-right: 6px;
+    line-break: anywhere;
 }
 
 #chat li .quote {
