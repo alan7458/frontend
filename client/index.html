@@ -46,10 +46,14 @@
     <div id="piano"></div>
     <div id="cursors"></div>
 
-
-    <div id="ebconfig"
-        style="width: 400px; padding: 10px; border: 1px solid #ffffff2f; background: rgba(0, 0, 0, 0.314); position: absolute; border-radius: 5px; z-index: 10000; backdrop-filter: blur(10px); font-size: 12px; display: none;">
-        <div class="ebtitle"
+    <div class="notification-body" id="themes" style="display: none; z-index:100000;">
+        <div class="title"
+            style="border-bottom: 1px solid #f50; font-size: 16px; font-weight: 700; padding-bottom: 5px; margin-bottom: 8px;">
+            Site Themes</div>
+        <p>I will continue to fix the themes later on. The BMP glass theme <br> is specifically created for this website, therefore, <br>it works the best.</p>
+    </div>
+    <div class="notification-body" id="ebconfig" style="display: none; z-index:100000;">
+        <div class="title"
             style="border-bottom: 1px solid #f50; font-size: 16px; font-weight: 700; padding-bottom: 5px; margin-bottom: 8px;">
             EB Settings</div>
 
@@ -82,10 +86,11 @@
                 <button id="toggleEbbattle" class="ebbutton" style="margin-bottom: 6px; font-size: 11px;">Toggle
                     ebbattle.js</button>
 
-                <button id="toggleEbsprite" class="ebbutton" style="display: none; margin-bottom: 6px; font-size: 11px;">Toggle
+                <button id="toggleEbsprite" class="ebbutton"
+                    style="display: none; margin-bottom: 6px; font-size: 11px;">Toggle
                     ebsprite.js</button>
                 <br>
-                <p>More coming soon... contact bmp7458 on discord.</p>
+                <p>More coming soon...</p>
             </div>
         </div>
     </div>
@@ -323,6 +328,7 @@
     <script src="ebbattle.js"></script>
     <script src="./visnotes.js"></script>
     <script src="fpsping.js"></script>
+    <script src="themer.js"></script>
     <script>
         $("#toggleEbbattle").click(function () {
             $("#ebbattle").toggle();
