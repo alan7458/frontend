@@ -523,6 +523,19 @@ input[type=range]:hover {
     background: #333
 }
 
+#meow-btn {
+    background: #111;
+    border: 1px solid #444;
+    padding: 5px;
+    cursor: pointer;
+    line-height: 12px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    overflow: hidden;
+    white-space: nowrap
+}
+
 .ugly-button {
     height: 12px;
     font-size: 12px;
@@ -1014,7 +1027,7 @@ input[type=range]:hover {
     position: fixed;
     bottom: 64px;
     left: 0;
-    width: 100%;
+    width: 99%;
     vertical-align: bottom;
     font-size: 13px;
     color: #fff;

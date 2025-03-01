@@ -35,12 +35,14 @@ $(document).ready(function () {
     });
 
     function applyCSS(file) {
-        let $linkTag = $("#dynamic-style");
-        if ($linkTag.length === 0) {
-            $linkTag = $('<link id="dynamic-style" rel="stylesheet" type="text/css">').appendTo('head');
-        }
-        $linkTag.attr("href", file);
+        $("body").css("transition", "all 0.25s ease-in-out"); // Apply smooth transition
+        $("#dynamic-style").remove(); // Remove old stylesheet
+    
+        let $newLink = $('<link id="dynamic-style" rel="stylesheet" type="text/css">').attr("href", file);
+        $("head").append($newLink);
     }
+    
+    
 
     $(document).on("click", "#themes .ugly-button", function () {
         applyCSS($(this).data("css-file"));

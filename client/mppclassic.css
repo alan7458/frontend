@@ -426,6 +426,11 @@ table {
     background: #cdc;
 }
 
+#meow-btn {
+    margin-top: 4px; width: 77px; height: 90px; border-radius: 5px; border: 1px solid #abb; cursor: pointer;
+        transition: all 0.25s; box-shadow: 1px 1px 8px #bb9; color: #788; text-shadow: none; background-color: #dee; 
+}
+
 .ugly-button {
     height: 12px;
     font-size: 12px;
@@ -855,7 +860,7 @@ table {
     position: fixed;
     bottom: 64px;
     left: 0;
-    width: 100%;
+    width: 99%;
     vertical-align: bottom;
     font-size: 13px;
     color: white;

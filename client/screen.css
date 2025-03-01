@@ -596,9 +596,9 @@ input[type="range"]:hover {
     padding: 5px;
     cursor: pointer;
     line-height: 12px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     overflow: hidden;
     white-space: nowrap;
     position: absolute;
