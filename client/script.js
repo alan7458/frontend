@@ -127,7 +127,7 @@ $(function () {
 
   ////////////////////////////////////////////////////////////////
 
-  var AudioEngine = function () {};
+  var AudioEngine = function () { };
 
   AudioEngine.prototype.init = function (cb) {
     this.volume = 0.6;
@@ -136,11 +136,11 @@ $(function () {
     return this;
   };
 
-  AudioEngine.prototype.load = function (id, url, cb) {};
+  AudioEngine.prototype.load = function (id, url, cb) { };
 
-  AudioEngine.prototype.play = function () {};
+  AudioEngine.prototype.play = function () { };
 
-  AudioEngine.prototype.stop = function () {};
+  AudioEngine.prototype.stop = function () { };
 
   AudioEngine.prototype.setVolume = function (vol) {
     this.volume = vol;
@@ -338,7 +338,7 @@ $(function () {
 
   ////////////////////////////////////////////////////////////////
 
-  var Renderer = function () {};
+  var Renderer = function () { };
 
   Renderer.prototype.init = function (piano) {
     this.piano = piano;
@@ -357,7 +357,7 @@ $(function () {
     this.height = height * window.devicePixelRatio;
   };
 
-  Renderer.prototype.visualize = function (key, color) {};
+  Renderer.prototype.visualize = function (key, color) { };
 
   var CanvasRenderer = function () {
     Renderer.call(this);
@@ -563,8 +563,8 @@ $(function () {
         if (key.sharp) {
           ctx.fillRect(
             this.blackKeyOffset +
-              this.whiteKeyWidth * key.spatial +
-              ctx.lineWidth / 2,
+            this.whiteKeyWidth * key.spatial +
+            ctx.lineWidth / 2,
             y + ctx.lineWidth / 2,
             this.blackKeyWidth - ctx.lineWidth,
             this.blackKeyHeight - ctx.lineWidth,
@@ -636,7 +636,7 @@ $(function () {
         if (key.timePlayed > timePlayedEnd) {
           y = Math.floor(
             this.keyMovement -
-              ((now - key.timePlayed) / 100) * this.keyMovement,
+            ((now - key.timePlayed) / 100) * this.keyMovement,
           );
         }
         var x = Math.floor(
@@ -652,9 +652,8 @@ $(function () {
         keyName += key.octave + 1;
 
         if (gShowPianoNotes) {
-          this.ctx.font = `${
-            (key.sharp ? this.blackKeyWidth : this.whiteKeyWidth) / 2
-          }px Arial`;
+          this.ctx.font = `${(key.sharp ? this.blackKeyWidth : this.whiteKeyWidth) / 2
+            }px Arial`;
           this.ctx.fillStyle = key.sharp ? "white" : "black";
           this.ctx.textAlign = "center";
 
@@ -664,9 +663,9 @@ $(function () {
               keyName,
               x + (key.sharp ? this.blackKeyWidth : this.whiteKeyWidth) / 2,
               y +
-                (key.sharp ? this.blackKeyHeight : this.whiteKeyHeight) -
-                30 -
-                this.ctx.lineWidth,
+              (key.sharp ? this.blackKeyHeight : this.whiteKeyHeight) -
+              30 -
+              this.ctx.lineWidth,
             );
           }
 
@@ -680,9 +679,9 @@ $(function () {
             keyName,
             x + (key.sharp ? this.blackKeyWidth : this.whiteKeyWidth) / 2,
             y +
-              (key.sharp ? this.blackKeyHeight : this.whiteKeyHeight) -
-              10 -
-              this.ctx.lineWidth,
+            (key.sharp ? this.blackKeyHeight : this.whiteKeyHeight) -
+            10 -
+            this.ctx.lineWidth,
           );
         }
 
@@ -1239,9 +1238,9 @@ $(function () {
       if (count > 0) {
         $("#status").html(
           '<span class="number" translated>' +
-            count +
-            "</span> " +
-            window.i18nextify.i18next.t("people are playing", { count }),
+          count +
+          "</span> " +
+          window.i18nextify.i18next.t("people are playing", { count }),
         );
         if (!tabIsActive) {
           if (youreMentioned || youreReplied) {
@@ -1758,15 +1757,24 @@ $(function () {
       $("#piano").removeClass("spin");
     }
   });
-
+  /*
+    function eb() {
+      if(gClient.channel && gClient.channel._id.toLowerCase() === "test/fishing") {
+        ebsprite.start(gClient);
+      } else {
+        ebsprite.stop();
+      }
+    }
+      */
   function eb() {
-    if(gClient.channel && gClient.channel._id.toLowerCase() === "test/fishing") {
-      ebsprite.start(gClient);
+    if (gClient.channel && gClient.channel._id.toLowerCase) {
+      ebsprite.start(gClient)
+      console.log('if not starting som ting wong')
     } else {
-      ebsprite.stop();
+      ebsprite.stop()
     }
   }
-  if(ebsprite) {
+  if (ebsprite) {
     gClient.on("ch", eb);
     eb();
   }
@@ -2656,7 +2664,7 @@ $(function () {
     }
     this.domElement = $(
       '<div class="notification"><div class="notification-body"><div class="title"></div>' +
-        '<div class="text"></div></div><div class="x" translated>X</div></div>',
+      '<div class="text"></div></div><div class="x" translated>X</div></div>',
     );
     this.domElement[0].id = this.id;
     this.domElement.addClass(this["class"]);
@@ -2740,9 +2748,9 @@ $(function () {
       gPiano.audio.setVolume(localStorage.volume);
       $("#volume-label").html(
         window.i18nextify.i18next.t("Volume") +
-          "<span translated>: " +
-          Math.floor(gPiano.audio.volume * 100) +
-          "%</span>",
+        "<span translated>: " +
+        Math.floor(gPiano.audio.volume * 100) +
+        "%</span>",
       );
     } else localStorage.volume = gPiano.audio.volume;
 
@@ -2783,8 +2791,8 @@ $(function () {
       var room = ls.u[i];
       var info = $(
         '#room .info[roomid="' +
-          (room.id + "").replace(/[\\"']/g, "\\$&").replace(/\u0000/g, "\\0") +
-          '"]',
+        (room.id + "").replace(/[\\"']/g, "\\$&").replace(/\u0000/g, "\\0") +
+        '"]',
       );
 
       if (info.length == 0) {
@@ -2798,10 +2806,10 @@ $(function () {
 
       info.text(
         room.count +
-          "/" +
-          ("limit" in room.settings ? room.settings.limit : 20) +
-          " " +
-          room._id,
+        "/" +
+        ("limit" in room.settings ? room.settings.limit : 20) +
+        " " +
+        room._id,
       );
       if (room.settings.lobby) info.addClass("lobby");
       else info.removeClass("lobby");
@@ -2885,8 +2893,8 @@ $(function () {
         $("#account #avatar-image").prop("src", gClient.accountInfo.avatar);
         $("#account #logged-in-user-text").text(
           gClient.accountInfo.username +
-            "#" +
-            gClient.accountInfo.discriminator,
+          "#" +
+          gClient.accountInfo.discriminator,
         );
       }
     } else {
@@ -3222,7 +3230,7 @@ $(function () {
         chat.hide();
       }
     });
-    gClient.on("disconnect", function (msg) {});
+    gClient.on("disconnect", function (msg) { });
     gClient.on("c", function (msg) {
       chat.clear();
       if (msg.c) {
@@ -3311,7 +3319,7 @@ $(function () {
     // Optionally show a warning when clicking links
     /*$("#chat ul").on("click", ".chatLink", function(ev) {
       var $s = $(this);
-
+  
       if(gWarnOnLinks) {
         if(!$s.hasClass("clickedOnce")) {
           $s.addClass("clickedOnce");
@@ -3508,18 +3516,16 @@ $(function () {
           }
           if (repliedMsg) {
             li.find(".replyLink").text(
-              `➥ ${
-                repliedMsg.m === "dm"
-                  ? repliedMsg.sender.name
-                  : repliedMsg.p.name
+              `➥ ${repliedMsg.m === "dm"
+                ? repliedMsg.sender.name
+                : repliedMsg.p.name
               }`,
             );
             li.find(".replyLink").css({
-              background: `${
-                (repliedMsg?.m === "dm"
-                  ? repliedMsg?.sender?.color
-                  : repliedMsg?.p?.color) ?? "gray"
-              }`,
+              background: `${(repliedMsg?.m === "dm"
+                ? repliedMsg?.sender?.color
+                : repliedMsg?.p?.color) ?? "gray"
+                }`,
             });
             li.find(".replyLink").on("click", (evt) => {
               $("#chat-input").focus();
@@ -3527,16 +3533,14 @@ $(function () {
                 .getElementById(`msg-${repliedMsg?.id}`)
                 .scrollIntoView({ behavior: "smooth" });
               $(`#msg-${repliedMsg?.id}`).css({
-                border: `1px solid ${
-                  repliedMsg?.m === "dm"
-                    ? repliedMsg.sender?.color
-                    : repliedMsg.p?.color
-                }80`,
-                "background-color": `${
-                  repliedMsg?.m === "dm"
-                    ? repliedMsg.sender?.color
-                    : repliedMsg.p?.color
-                }20`,
+                border: `1px solid ${repliedMsg?.m === "dm"
+                  ? repliedMsg.sender?.color
+                  : repliedMsg.p?.color
+                  }80`,
+                "background-color": `${repliedMsg?.m === "dm"
+                  ? repliedMsg.sender?.color
+                  : repliedMsg.p?.color
+                  }20`,
               });
               setTimeout(() => {
                 $(`#msg-${repliedMsg?.id}`).css({
@@ -3691,12 +3695,10 @@ $(function () {
             MPP.chat.startReply(msg.p, msg.id, msg.a);
             setTimeout(() => {
               $(`#msg-${msg.id}`).css({
-                border: `1px solid ${
-                  msg?.m === "dm" ? msg.sender?.color : msg.p?.color
-                }80`,
-                "background-color": `${
-                  msg?.m === "dm" ? msg.sender?.color : msg.p?.color
-                }20`,
+                border: `1px solid ${msg?.m === "dm" ? msg.sender?.color : msg.p?.color
+                  }80`,
+                "background-color": `${msg?.m === "dm" ? msg.sender?.color : msg.p?.color
+                  }20`,
               });
             }, 100);
             setTimeout(() => {
@@ -3712,12 +3714,10 @@ $(function () {
                 MPP.chat.startDmReply(replyingTo, msg.id);
                 setTimeout(() => {
                   $(`#msg-${msg.id}`).css({
-                    border: `1px solid ${
-                      msg?.m === "dm" ? msg.sender?.color : msg.p?.color
-                    }80`,
-                    "background-color": `${
-                      msg?.m === "dm" ? msg.sender?.color : msg.p?.color
-                    }20`,
+                    border: `1px solid ${msg?.m === "dm" ? msg.sender?.color : msg.p?.color
+                      }80`,
+                    "background-color": `${msg?.m === "dm" ? msg.sender?.color : msg.p?.color
+                      }20`,
                   });
                 }, 100);
                 setTimeout(() => {
@@ -3822,11 +3822,11 @@ $(function () {
               // NOTE_OFF
               release(
                 MIDI_KEY_NAMES[
-                  note_number -
-                    9 +
-                    MIDI_TRANSPOSE +
-                    transpose +
-                    pitchBends[channel]
+                note_number -
+                9 +
+                MIDI_TRANSPOSE +
+                transpose +
+                pitchBends[channel]
                 ],
               );
             } else if (cmd == 9) {
@@ -3834,11 +3834,11 @@ $(function () {
               if (evt.target.volume !== undefined) vel *= evt.target.volume;
               press(
                 MIDI_KEY_NAMES[
-                  note_number -
-                    9 +
-                    MIDI_TRANSPOSE +
-                    transpose +
-                    pitchBends[channel]
+                note_number -
+                9 +
+                MIDI_TRANSPOSE +
+                transpose +
+                pitchBends[channel]
                 ],
                 vel / 127,
               );
@@ -4168,14 +4168,14 @@ $(function () {
     if(url.indexOf(".js") !== url.length - 3) return;
     // extensions inject cross-domain embeds too
     if(url.toLowerCase().indexOf("multiplayerpiano.com") == -1) return;
-
+  
     // errors in my code
     if(url.indexOf("script.js") !== -1) {
       if(message.indexOf("Object [object Object] has no method 'on'") !== -1) return;
       if(message.indexOf("Object [object Object] has no method 'off'") !== -1) return;
       if(message.indexOf("Property '$' of object [object Object] is not a function") !== -1) return;
     }
-
+  
     var enc = "/bugreport/"
       + (message ? encodeURIComponent(message) : "") + "/"
       + (url ? encodeURIComponent(url) : "") + "/"
@@ -5247,7 +5247,7 @@ $(function () {
 
   (async () => {
     // prettier-ignore
-    const translationIdsWithNames = [{"code":"bg","name":"Bulgarian","native":"Български"},{"code":"cs","name":"Czech","native":"Česky"},{"code":"de","name":"German","native":"Deutsch"},{"code":"en","name":"English","native":"English"},{"code":"es","name":"Spanish","native":"Español"},{"code":"fr","name":"French","native":"Français"},{"code":"hu","name":"Hungarian","native":"Magyar"},{"code":"is","name":"Icelandic","native":"Íslenska"},{"code":"ja","name":"Japanese","native":"日本語"},{"code":"ko","name":"Korean","native":"한국어"},{"code":"lv","name":"Latvian","native":"Latviešu"},{"code":"nb","name":"Norwegian Bokmål","native":"Norsk bokmål"},{"code":"nl","name":"Dutch","native":"Nederlands"},{"code":"pl","name":"Polish","native":"Polski"},{"code":"pt","name":"Portuguese","native":"Português"},{"code":"ru","name":"Russian","native":"Русский"},{"code":"sk","name":"Slovak","native":"Slovenčina"},{"code":"sv","name":"Swedish","native":"Svenska"},{"code":"tr","name":"Turkish","native":"Türkçe"},{"code":"zh","name":"Chinese","native":"中文"}]
+    const translationIdsWithNames = [{ "code": "bg", "name": "Bulgarian", "native": "Български" }, { "code": "cs", "name": "Czech", "native": "Česky" }, { "code": "de", "name": "German", "native": "Deutsch" }, { "code": "en", "name": "English", "native": "English" }, { "code": "es", "name": "Spanish", "native": "Español" }, { "code": "fr", "name": "French", "native": "Français" }, { "code": "hu", "name": "Hungarian", "native": "Magyar" }, { "code": "is", "name": "Icelandic", "native": "Íslenska" }, { "code": "ja", "name": "Japanese", "native": "日本語" }, { "code": "ko", "name": "Korean", "native": "한국어" }, { "code": "lv", "name": "Latvian", "native": "Latviešu" }, { "code": "nb", "name": "Norwegian Bokmål", "native": "Norsk bokmål" }, { "code": "nl", "name": "Dutch", "native": "Nederlands" }, { "code": "pl", "name": "Polish", "native": "Polski" }, { "code": "pt", "name": "Portuguese", "native": "Português" }, { "code": "ru", "name": "Russian", "native": "Русский" }, { "code": "sk", "name": "Slovak", "native": "Slovenčina" }, { "code": "sv", "name": "Swedish", "native": "Svenska" }, { "code": "tr", "name": "Turkish", "native": "Türkçe" }, { "code": "zh", "name": "Chinese", "native": "中文" }]
 
     const languages = document.getElementById("languages");
 
