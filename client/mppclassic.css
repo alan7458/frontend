@@ -431,6 +431,14 @@ table {
         transition: all 0.25s; box-shadow: 1px 1px 8px #bb9; color: #788; text-shadow: none; background-color: #dee; 
 }
 
+#fps-ping-info,
+#layer-info {
+    background: rgba(170, 187, 170, 0.35);
+    border: 1px solid #898;
+    padding: 5px;
+    border-radius: 3px;
+}
+
 .ugly-button {
     height: 12px;
     font-size: 12px;
@@ -454,7 +462,7 @@ table {
 .ugly-button.stuck {
     background: rgba(204, 187, 170, 0.35);
 }
-
+/*
 #new-room-btn {
     position: absolute;
     left: 300px;
@@ -497,7 +505,7 @@ table {
     left: 540px;
     top: 32px;
 }
-
+*/
 #social #more-button {
     margin-top: 4px;
     width: 77px;

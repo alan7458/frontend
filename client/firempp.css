@@ -537,6 +537,13 @@ input[type="range"]:hover {
     background: #333;
 }
 
+#fps-ping-info,
+#layer-info {
+    background: linear-gradient(#555, #333);
+    border: 1px solid #777;
+    border-radius: 2px;
+}
+
 #meow-btn {
     background: linear-gradient(#555, #333);
     border: 1px solid #777;
@@ -569,7 +576,7 @@ input[type="range"]:hover {
 .ugly-button.stuck {
     background: rgba(204, 187, 170, .35);
 }
-
+/*
 #new-room-btn {
     position: absolute;
     left: 300px;
@@ -612,7 +619,7 @@ input[type="range"]:hover {
     left: 540px;
     top: 32px;
 }
-
+*/
 #client-settings-btn {
     position: absolute;
     left: 660px;

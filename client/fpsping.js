@@ -3,12 +3,10 @@ $(document).ready(function () {
         position: 'fixed',
         bottom: '110px',
         right: '10px',
-        background: '#00000050',
         color: 'white',
         padding: '5px 10px',
         fontFamily: 'Arial, sans-serif',
         fontSize: '14px',
-        borderRadius: '5px',
         zIndex: '-1000'
     });
 

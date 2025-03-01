@@ -585,6 +585,7 @@ input[type="range"]:hover {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+    background: #00000050;
 }
 
 #meow-btn {
