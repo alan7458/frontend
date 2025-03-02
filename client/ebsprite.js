@@ -2307,7 +2307,7 @@ if (typeof module !== "undefined") {
 	  sprites: ["3382", "3383", "3384", "3385", "3386", "3387", "3388", "3389"],
 	},
 	{
-	  name: "Frisk", //mine
+	  name: "Frisk", 
 	  sprites: ["3390", "3391", "3392", "3393", "3394", "3395", "3396", "3397"],
 	},
 	{
@@ -2644,7 +2644,7 @@ if (typeof module !== "undefined") {
 	{
 	  name: "Tessie Water Ring",
 	  sprites: ["4014", "4015", "4016", "4017", "4018", "4019", "4020", "4021"],
-	},
+	}
   ];
   
   function ebsprite() {}
@@ -2842,7 +2842,7 @@ if (typeof module !== "undefined") {
 		this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
 	  }*/
 		  const idToSpriteMap = {
-			"cbd5e1bf22111043d5240f97": "Ness",
+			"cbd5e1bf22111043d5240f97": "Sans",
 			"50a9fd89faeecd70d2fa3308": "Frisk",
 		  };
 		  
