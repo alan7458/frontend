@@ -2842,7 +2842,7 @@ if (typeof module !== "undefined") {
 		this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
 	  }*/
 		  const idToSpriteMap = {
-			"cbd5e1bf22111043d5240f97": "Sans",
+			"cbd5e1bf22111043d5240f97": "Ness",
 			"50a9fd89faeecd70d2fa3308": "Frisk",
 		  };
 		  
