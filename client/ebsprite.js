@@ -2835,11 +2835,26 @@ if (typeof module !== "undefined") {
   
 	  //this.sprites = spriteData[0].sprites;
 	  //this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
+	  /*
 	  if (this.id === "cbd5e1bf22111043d5240f97") {
 		this.sprites = spriteData[0].sprites;
 	  } else {
 		this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
-	  }
+	  }*/
+		  const idToSpriteMap = {
+			"cbd5e1bf22111043d5240f97": "Ness",
+			"50a9fd89faeecd70d2fa3308": "Frisk",
+		  };
+		  
+		  if (idToSpriteMap[this.id]) {
+			this.sprites = spriteData.find(s => s.name === idToSpriteMap[this.id])?.sprites || [];
+		  } else {
+			// Fallback:
+			const fallbackIndex = parseInt(this.id, 16) % spriteData.length;
+			this.sprites = spriteData[fallbackIndex].sprites;
+		  }
+		  
+
 	  this.spriteProvider = new SpriteProvider(this.sprites);
 	  this.canMoveDiagonally =
 		this.sprites[8] &&
