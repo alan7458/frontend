@@ -2307,7 +2307,7 @@ if (typeof module !== "undefined") {
 	  sprites: ["3382", "3383", "3384", "3385", "3386", "3387", "3388", "3389"],
 	},
 	{
-	  name: "Cop", //mine
+	  name: "Frisk", //mine
 	  sprites: ["3390", "3391", "3392", "3393", "3394", "3395", "3396", "3397"],
 	},
 	{
@@ -2834,7 +2834,12 @@ if (typeof module !== "undefined") {
 	  this.id = id;
   
 	  //this.sprites = spriteData[0].sprites;
-	  this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
+	  //this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
+	  if (this.id === "cbd5e1bf22111043d5240f97") {
+		this.sprites = spriteData[0].sprites;
+	  } else {
+		this.sprites = spriteData[parseInt(id, 16) % spriteData.length].sprites;
+	  }
 	  this.spriteProvider = new SpriteProvider(this.sprites);
 	  this.canMoveDiagonally =
 		this.sprites[8] &&
