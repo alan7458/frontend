@@ -1056,16 +1056,16 @@ $(function () {
 
   var gSoundSelector = new SoundSelector(gPiano);
   gSoundSelector.addPacks([
-    "/sounds/Emotional/",
+    /*"/sounds/Emotional/",
     "/sounds/Emotional_2.0/",
     "/sounds/GreatAndSoftPiano/",
     "/sounds/HardAndToughPiano/",
-    "/sounds/HardPiano/",
-    "/sounds/Harp/",
+    "/sounds/HardPiano/",*/
+    "/sounds/Harp/",/*
     "/sounds/Harpsicord/",
-    "/sounds/LoudAndProudPiano/",
+    "/sounds/LoudAndProudPiano/",*/
     "/sounds/MLG/",
-    "/sounds/Music_Box/",
+    /*"/sounds/Music_Box/",
     "/sounds/NewPiano/",
     "/sounds/Orchestra/",
     "/sounds/Piano2/",
@@ -1075,7 +1075,7 @@ $(function () {
     "/sounds/Steinway_Grand/",
     "/sounds/Untitled/",
     "/sounds/Vintage_Upright/",
-    "/sounds/Vintage_Upright_Soft/",
+    "/sounds/Vintage_Upright_Soft/",*/
   ]);
   //gSoundSelector.addPacks(["/sounds/Emotional_2.0/", "/sounds/Harp/", "/sounds/Music_Box/", "/sounds/Vintage_Upright/", "/sounds/Steinway_Grand/", "/sounds/Emotional/", "/sounds/Untitled/"]);
   gSoundSelector.init();
