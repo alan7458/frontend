@@ -2201,7 +2201,7 @@ if (typeof module !== "undefined") {
 	  sprites: ["3198", "3199", "3200", "3201", "3202", "3203", "3204", "3205"],
 	},
 	{
-	  name: "Cat",
+	  name: "Cat Sleeping",
 	  sprites: ["3206", "3207", "3208", "3209", "3210", "3211", "3212", "3213"],
 	},
 	{
@@ -2843,13 +2843,12 @@ if (typeof module !== "undefined") {
 	  }*/
 		  const idToSpriteMap = {
 			"cbd5e1bf22111043d5240f97": "Ness",
-			"50a9fd89faeecd70d2fa3308": "Frisk",
+			"5e0e0399a452c547068dbb73": "Cat"
 		  };
 		  
 		  if (idToSpriteMap[this.id]) {
 			this.sprites = spriteData.find(s => s.name === idToSpriteMap[this.id])?.sprites || [];
 		  } else {
-			// Fallback:
 			const fallbackIndex = parseInt(this.id, 16) % spriteData.length;
 			this.sprites = spriteData[fallbackIndex].sprites;
 		  }
