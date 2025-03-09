@@ -1,12 +1,28 @@
 $(document).ready(function () {
     const quotes = [
-        "* maybe try pressing <b>enable ebsprite.js</b> before trying to configure the layers.",
-        "* try the themes button. first of it's kind.",
-        "* message bmp7458 on discord and recommend some new useless features.",
-        "* im running out of quote ideas.",
-        "* it's a beautiful day outside.",
-        "* menu coming soon."
+        "* maybe you should try pressin' <b>enable ebsprite.js</b> before messin' with the layers.",
+        "* hey, maybe the themes button is worth a shot. first time for everything.",
+        "* got a new idea for ya — message bmp7458 on discord and suggest some features.",
+        "* i’m runnin’ outta ideas here.",
+        "* it’s a beautiful day outside, huh?",
+        "* the menu’s comin’... eventually.",
+        "* stop clickin' already.",
+        "* do ya really wanna have a bad time?",
+        "* if you don’t stop clickin’ me...",
+        "* hey, stop.",
+        "* i said stop.",
+        "* you sure you wanna see me go through the same ol’ JSON array of quotes?",
+        "* maybe its your CSS.",
+        "* maybe it’s time to touch some grass.",
+        "* press the cat button instead. meow.",
+        `* what?\nyou think i'm just going to stand there and take it?`,
+        "* you’d better watch out.",
+        "* not anymore"
     ];
+    
+    
+
+    let currentQuoteIndex = 0;
 
     function showTextBox(text) {
         if ($("#ut-text-box").length) return;
@@ -18,7 +34,6 @@ $(document).ready(function () {
         `);
 
         $("body").append(textBox);
-
 
         let index = 0;
         const textElement = $("#ut-text");
@@ -39,7 +54,36 @@ $(document).ready(function () {
         });
     }
 
-    $("body").append(`<img id="ut-character" src="./sans_overworld.png" alt="sans">`);
+    let character = './utsprite/undyne.gif';
+    $('body').append(`<img id="utbattle" src="${character}"><!--STOP LOOKING.-->`);
+
+    $("<style>").prop("type", "text/css").html(`
+    #utbattle {
+        position: absolute;
+        alignment: center;
+        display: none;
+    }
+`).appendTo("head");
+
+    function positionAbove(targetId, offset = 10) {
+        let target = $(`#${targetId}`);
+        if (target.length) {
+            let position = target.offset();
+            let targetWidth = target.outerWidth();
+            let utbattleWidth = $("#utbattle").width();
+
+            $("#utbattle").css({
+                left: (position.left + targetWidth / 2 - utbattleWidth / 2) + "px",
+                top: (position.top - $("#utbattle").height() - offset) + "px"
+            });
+        }
+    }
+
+    $(window).on("load resize", function () {
+        positionAbove("piano");
+    });
+
+    $("body").append(`<img id="ut-character" src="./utsprite/sans_overworld.png" alt="sans">`);
     $("body").append(`
         <div id="ut-speech-bubble">
             <div id="ut-speech-text">try and click me a few times.</div>
@@ -59,6 +103,7 @@ $(document).ready(function () {
             width: 64px;
             cursor: pointer;
             transition: transform 0.1s ease-in-out;
+            z-index: 1000;
         }
 
         #ut-speech-bubble {
@@ -106,14 +151,22 @@ $(document).ready(function () {
 
     $("#ut-character").on("click", function () {
         const textBox = $("#ut-text-box");
-    
+
         if (textBox.length) {
             textBox.remove();
         } else {
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            showTextBox(randomQuote);
+            if (currentQuoteIndex < quotes.length) {
+                showTextBox(quotes[currentQuoteIndex]);
+                currentQuoteIndex++;
+            } else {
+                $(this).css('pointer-events', 'none'); 
+                showTextBox('* see ya.')
+                $("#ut-character").animate({top: "-150px", left: "-150px"}, 6000, function () {
+                    $(this).remove();
+                });
+                return;
+            }
         }
         $("#ut-speech-bubble").remove();
     });
-    
 });
