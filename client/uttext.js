@@ -17,10 +17,9 @@ $(document).ready(function () {
         "* press the cat button instead. meow.",
         `* what?\nyou think i'm just going to stand there and take it?`,
         "* you’d better watch out.",
-        "* not anymore"
+        "* if you click me one more time...",
+        "* alright. thats it."
     ];
-    
-    
 
     let currentQuoteIndex = 0;
 
@@ -159,9 +158,12 @@ $(document).ready(function () {
                 showTextBox(quotes[currentQuoteIndex]);
                 currentQuoteIndex++;
             } else {
-                $(this).css('pointer-events', 'none'); 
+                $(this).css('pointer-events', 'none');
                 showTextBox('* see ya.')
-                $("#ut-character").animate({top: "-150px", left: "-150px"}, 6000, function () {
+                $("#ut-character").animate({
+                    top: "-150px",
+                    left: "-150px"
+                }, 6000, function () {
                     $(this).remove();
                 });
                 return;
