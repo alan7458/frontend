@@ -577,6 +577,7 @@ table {
     background-position: 50% 50%;
     appearance: none;
     -webkit-appearance: none;
+    box-shadow: none;
 }
 
 #volume-label {

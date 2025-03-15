@@ -2547,6 +2547,16 @@ $(function () {
           }, 1);
         });
 
+
+        $(
+          `<div class="menu-item">${window.i18nextify.i18next.t(
+            `
+            <div id="volumetext">User Volume</div>
+            <input type="range" id="user-volume-slider" min="0.0" max="1.0" step="0.01">`,
+          )}</div>`,
+        )
+          .appendTo(menu)
+
       if (gClient.isOwner() || gClient.permissions.chownAnywhere) {
         if (!gClient.channel.settings.lobby) {
           $(
