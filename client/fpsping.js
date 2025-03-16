@@ -28,6 +28,17 @@ $(document).ready(function () {
     }
     updateFPS();
 
+    async function getPing() {
+        let start = Date.now();
+        try { 
+            await fetch(`${window.location.protocol}${MPP.client.uri.slice(4)}`); 
+        } catch (err) {}
+    
+        let ping = Date.now() - start;
+        $('#fps-ping-info').text(`FPS: ${fps} | Ping: ${ping}ms`);
+    }
+    
+/*
     function getPing() {
         let start = performance.now();
         new Promise(resolve => setTimeout(resolve, Math.random() * 100))
@@ -36,7 +47,7 @@ $(document).ready(function () {
                 $('#fps-ping-info').text(`FPS: ${fps} | Ping: ${ping}ms`);
             });
     }
-    
+    */
     
 
     setInterval(getPing, 1000);
